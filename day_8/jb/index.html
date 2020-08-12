@@ -6,7 +6,23 @@
   </head>
 
   <body>
-
+    <h1>Random Number Game</h1>
+    <div id="js-between" style="font-size: 30px;">
+      Plz Set Number Range!
+    </div>
+    <input type="range" id="js-range" min="0" max="100" step="1" value="50" />
+    <form id="js-guess">
+      Guess the number
+      <input
+        id="js-input"
+        type="number"
+        min="0"
+        placeholder="put in number, Nico!"
+      />
+      <button id="js-play">Play!</button>
+      <p id="test"></p>
+      <p id="victory"></p>
+    </form>
     <script src="src/index.js"></script>
   </body>
 </html>
