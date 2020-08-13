@@ -1,4 +1,78 @@
 body {
     font-family: sans-serif;
+    color: white;
+    font-size: 30px;
   }
   
+input.display{
+  color: white;
+  width: 500px;
+  border: inherit;
+}
+
+
+.father__box{
+  background-color: black;
+  width: 700px;
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+.btn__column{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.display{
+  width: 160px;
+  height: 65px;
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 40px;
+}
+
+.btn, .btn__long{
+  width: 160px;
+  height: 65px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.num,
+.equal{
+  background-color: #363439;
+
+}
+
+
+.clear{
+ background-color: #A7AAB1;
+}
+
+.plus,
+.minus,
+.time,
+.divide{
+  background-color: #FE8E00;
+}
+
+.btn__long{
+  width: 330px;
+  height: 65px;
+}
+
+.btn:active{
+  opacity: 0.8;
+}
+
+.btn__long:active{
+  opacity: 0.8;
+}
+

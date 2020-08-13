@@ -3,10 +3,39 @@
   <head>
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/styles.css">
   </head>
 
   <body>
-
+    <div class="father__box">
+      <div class="btn__column">
+        <input type="text" class="display">
+        <div class="btn clear">C</div>
+      </div>
+      <div class="btn__column">
+        <div onclick="add(7)" class="btn num">7</div>
+        <div onclick="add(8)" class="btn num">8</div>
+        <div onclick="add(9)" class="btn num">9</div>
+        <div onclick="add('+')" class="btn plus">+</div>
+      </div>
+      <div class="btn__column">
+        <div onclick="add(4)" class="btn num">4</div>
+        <div onclick="add(5)" class="btn num">5</div>
+        <div onclick="add(6)" class="btn num">6</div>
+        <div onclick="add('-')" class="btn minus">-</div>
+      </div>
+      <div class="btn__column">
+        <div onclick="add(1)" class="btn num">1</div>
+        <div onclick="add(2)" class="btn num">2</div>
+        <div onclick="add(3)" class="btn num">3</div>
+        <div onclick="add('*')" class="btn time">*</div>
+      </div>
+      <div class="btn__column">
+        <div onclick="add(0)" class="btn__long num">0</div>
+        <div onclick="calculate()" class="btn equal">=</div>
+        <div onclick="add('/')" class="btn divide">/</div>
+      </div>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>

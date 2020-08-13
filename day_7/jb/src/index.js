@@ -63,13 +63,18 @@ function saveFinish(){
     localStorage.setItem(FINISHED_LS, JSON.stringify(FINISHED));
 }
 
+function idId(){
+    while (true);
+    i = 0;
+    let newId = i;
+    i++;
+}
 
 function paintToDo(text){
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
     const chkBtn = document.createElement("button");
     const span = document.createElement("span");
-    const newId = PENDING.length + 1;
     delBtn.innerText = "❌";
     delBtn.addEventListener("click",deleteToDo);
     chkBtn.innerText = "✔";
@@ -93,7 +98,6 @@ function paintFinish(text){
     const delBtn = document.createElement("button");
     const chkBtn = document.createElement("button");
     const span = document.createElement("span");
-    const newId = PENDING.length + 1;
     delBtn.innerText = "❌";
     delBtn.addEventListener("click", deleteCheck);
     chkBtn.innerText = "🔙";
@@ -111,6 +115,7 @@ function paintFinish(text){
     FINISHED.push(finishObj);
     saveFinish();
 }
+
 
 
 function handleSubmit(event){
