@@ -1,24 +1,86 @@
-const jsDisplay = document.querySelector(".display"),
-jsClear = document.querySelector(".clear"),
-jsEqual = document.querySelector(".equal");
+const numbers = document.querySelectorAll(".num")
+const operators = document.querySelectorAll(".op")
+const jsDisplay = document.querySelector(".display")
+const jsClear = document.querySelector(".clear")
 
+let checkBtn = false
+let checkPreNum = false
 
-
-function add(num){
-  jsDisplay.value = jsDisplay.value + num;
+for (let i = 0; i < numbers.length; i++){
+  numbers[i].addEventListener("click", inputNum)
 }
 
-function calculate(){
-  let result = eval(jsDisplay.value);
-  jsDisplay.value = result;
-}
 
 function handleClear(){
-  jsDisplay.value = "";
+  jsDisplay.value = ""
+  cal.result = 0
+  cal.preNum = 0
+  cal.nextNum = 0
+  checkPreNum = false
+}
+
+function inputNum(){
+  if (checkBtn === true)
+  clearDisplay()
+  if (cal.preOp === '=' && checkBtn === true)
+  console.log("Restart")
+  let inputText = this.innerHTML
+  jsDisplay.value += inputText
+  checkBtn = false
+}
+
+function clearDisplay(){
+  jsDisplay.value = ""
 }
 
 
-function init() {
-  jsClear.addEventListener("click", handleClear);
+let cal = {
+  result: 0,
+  preNum: 0,
+  nextNum: 0,
+  preOp: null,
+  op: null,
+  calculator: function(){
+    let inputText = this.innerHTML
+    cal.op = inputText
+    checkBtn = true
+    if (checkPreNum === false){
+      cal.preNum = Number(jsDisplay.value)
+      checkPreNum = true
+    } else {
+      cal.nextNum = Number(jsDisplay.value)
+      clearDisplay()
+      cal.resultFn(cal.preOp)
+      cal.preNum = cal.result
+      if (cal.op == '='){
+        checkPreNum = false
+      }
+    }
+    cal.preOp = cal.op
+  },
+  resultFn: function(op){
+    switch(op){
+      case '+':
+      cal.result = cal.preNum + cal.nextNum
+      break;
+      case '-':
+      cal.result = cal.preNum - cal.nextNum
+      break;
+      case '*':
+      cal.result = cal.preNum * cal.nextNum
+      break;
+      case '/':
+      cal.result = cal.preNum / cal.nextNum
+      break;
+    }
+    jsDisplay.value = cal.result
+  }
 }
-  init();
+for (let i = 0; i < operators.length; i++){
+  operators[i].addEventListener("click", cal.calculator)
+}
+function init(){
+  jsClear.addEventListener("click", handleClear)
+}
+
+init();
